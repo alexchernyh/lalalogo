@@ -138,8 +138,10 @@ add_action( 'widgets_init', 'lalalogo_widgets_init' );
  * Enqueue scripts and styles.
  */
 function lalalogo_scripts() {
-	wp_enqueue_style( 'lalalogo-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'lalalogo-style', 'rtl', 'replace' );
+	/*wp_enqueue_style( 'lalalogo-style', get_stylesheet_uri(), array(), _S_VERSION );
+	wp_style_add_data( 'lalalogo-style', 'rtl', 'replace' );*/
+	wp_register_style( 'lalalogo-style', get_template_directory_uri() . '/dist/main.47cb0d7a2b3b147b148e.css');
+	wp_enqueue_style('lalalogo-style');
 
 	wp_enqueue_script( 'lalalogo-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
@@ -152,7 +154,7 @@ add_action( 'wp_enqueue_scripts', 'lalalogo_scripts' );
 /**
  * Implement the Custom Header feature.
  */
-require get_template_directory() . '/inc/custom-header.php';
+// require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
@@ -172,7 +174,7 @@ require get_template_directory() . '/inc/customizer.php';
 /**
  * Load Jetpack compatibility file.
  */
-if ( defined( 'JETPACK__VERSION' ) ) {
+/*if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
-}
+}*/
 
